@@ -1,4 +1,6 @@
-import { reactive } from 'vue'
+import {
+  reactive
+} from 'vue'
 
 const caseData = reactive([{
     title: '【背景材料】 某小区十号楼地下室有一电气设备，该设备一次电源线长度为10．5m；接头处没有用橡皮包布包扎，绝缘处磨损，电源线裸露；安装在该设备上的漏电开关内的拉杆脱落，漏电开关失灵。某工程公司在该地下室施工中，付某等3名抹灰工将该电气设备移至新操作点，移动过程中付某触电死亡',
@@ -77,6 +79,13 @@ const caseData = reactive([{
       },
       {
         title: '特种作业人员必须按照国家有关规定经过专门的安全作业培训，并取得特种作业操作资格证书后，方可上岗作业',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -160,6 +169,13 @@ const caseData = reactive([{
       },
       {
         title: '这起事故中造成触电伤害原因之一是民工违章作业',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -243,6 +259,13 @@ const caseData = reactive([{
       },
       {
         title: '高处作业吊篮必须设置保险锁',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -326,6 +349,13 @@ const caseData = reactive([{
       },
       {
         title: '国家对扣件式钢管脚手架使用的扣件实行生产许可证制度',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -409,6 +439,13 @@ const caseData = reactive([{
       },
       {
         title: '施工现场动火前、动火过程中要严格进行环境安全检查',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -492,6 +529,13 @@ const caseData = reactive([{
       },
       {
         title: '上述事故中，“用吊篮架进行外装修作业时，首层安全网拆除”的做法是错误的，属于违章作业',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -575,6 +619,13 @@ const caseData = reactive([{
       },
       {
         title: '上述事故中，只有最后的学徒工的做法是错误的，其前两名人员的死亡属于意外，很难控制',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -658,6 +709,13 @@ const caseData = reactive([{
       },
       {
         title: '上述施工企业的是为了安排下岗职工就业的行为，公司对职工的培训可以不和其他职工的培训一样，不受限制',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -741,6 +799,13 @@ const caseData = reactive([{
       },
       {
         title: '若工程于2004年7月1日恢复施工，建设单位应当报发证机关核验安全许可证',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -824,6 +889,13 @@ const caseData = reactive([{
       },
       {
         title: '原南第二建筑公司在编制施工组织设计时，应当根据建筑工程的特点制定相应的安全技术措施',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -907,6 +979,13 @@ const caseData = reactive([{
       },
       {
         title: '原南第二建筑公司必须为从事危险作业的职工办理意外伤害保险，支付保险费',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -990,6 +1069,13 @@ const caseData = reactive([{
       },
       {
         title: '原北市建筑机械租赁公司应当按照安全施工的要求配备齐全有效的保险、限位等安全设施和装置',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -1073,6 +1159,13 @@ const caseData = reactive([{
       },
       {
         title: '东平建筑公司机构调整后，为精简机构，可以不再设置安全生产管理机构',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -1156,6 +1249,13 @@ const caseData = reactive([{
       },
       {
         title: '黄平市友好饭店应当根据不同施工阶段和周围环境及季节、气候的变化，在施工现场采取相应的安全施工措施',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -1239,6 +1339,13 @@ const caseData = reactive([{
       },
       {
         title: '此项目应由太平建筑公司统一组织编制建设工程生产安全事故应急救援预案',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -1322,6 +1429,13 @@ const caseData = reactive([{
       },
       {
         title: '白云饭店应当在施工前委托饭店原设计单位或者具有相应资质等级的设计单位提出设计方案',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -1405,6 +1519,13 @@ const caseData = reactive([{
       },
       {
         title: '若元广建设集团未领取安全生产许可证，可以从事生产活动',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -1488,6 +1609,13 @@ const caseData = reactive([{
       },
       {
         title: '确定挡土墙基础埋深的影响因素较多，相对于土质地基，岩石地基的挡土墙埋置深度应更大',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -1571,6 +1699,13 @@ const caseData = reactive([{
       },
       {
         title: '在同一支撑体系中，两种不同规格的钢管不得混用',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -1654,6 +1789,13 @@ const caseData = reactive([{
       },
       {
         title: '拆模时的混凝土强度应以标准养护条件下的混凝土试块试压强度为准',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -1737,6 +1879,13 @@ const caseData = reactive([{
       },
       {
         title: '拆除原用于有毒、可燃气体的管道及容器时，必须查清其残留物的种类、化学性质，采取相应措施后，方可进行拆除施工',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -1820,6 +1969,13 @@ const caseData = reactive([{
       },
       {
         title: '料斗提升时，除操作人员外，严禁其他人在料斗下停留',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -1903,6 +2059,13 @@ const caseData = reactive([{
       },
       {
         title: '钢筋切断机在运转过程中，严禁用手直接清除切刀附近的断头和杂物',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -1986,6 +2149,13 @@ const caseData = reactive([{
       },
       {
         title: 'QTG40塔机是一种汽车式塔式起重机',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -2069,6 +2239,13 @@ const caseData = reactive([{
       },
       {
         title: '施工升降机严禁载人',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -2152,6 +2329,13 @@ const caseData = reactive([{
       },
       {
         title: '本起事故的主要原因是女工唐某违规操作',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -2235,6 +2419,13 @@ const caseData = reactive([{
       },
       {
         title: '进入施工现场必须携带安全帽',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -2318,6 +2509,13 @@ const caseData = reactive([{
       },
       {
         title: '立杆步距、间距、剪刀撑应根据经批准的施工方案设置',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -2401,6 +2599,13 @@ const caseData = reactive([{
       },
       {
         title: '本起事故的主要原因是第三组没有及时将架体拆除',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -2484,6 +2689,13 @@ const caseData = reactive([{
       },
       {
         title: '本起事故的直接原因是移动式操作平台无围护栏杆',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -2567,6 +2779,13 @@ const caseData = reactive([{
       },
       {
         title: '未经施工负责人同意随意拆除安全防护设施，在作业完毕未立即恢复，这是导致本起事故的直接原因',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -2650,6 +2869,13 @@ const caseData = reactive([{
       },
       {
         title: '在TN-S接地、接零保护系统中，N线和PE线均有可能带电',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -2733,6 +2959,13 @@ const caseData = reactive([{
       },
       {
         title: '由于高压线路的四周空间存在强电场，导致四周的导体成为带电体，因此规范规定在高压排挤线路下方作业应保持一定的安全间隔，防止发生触电事故',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -2816,6 +3049,13 @@ const caseData = reactive([{
       },
       {
         title: '本起事故的直接原因是工地地下室外墙采用防水涂料',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -2899,6 +3139,13 @@ const caseData = reactive([{
       },
       {
         title: '电焊工张某违规操作是引起本起事故的主要原因',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -2982,6 +3229,13 @@ const caseData = reactive([{
       },
       {
         title: '物质的闪点越低，发生起火的危险性就越大',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -3065,6 +3319,13 @@ const caseData = reactive([{
       },
       {
         title: '该塔机生产厂违法雇用无安装资质的安装单位',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -3148,6 +3409,13 @@ const caseData = reactive([{
       },
       {
         title: '当有人在高处提升机吊笼处作业时，提升机操作人员擅自离岗',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -3231,6 +3499,13 @@ const caseData = reactive([{
       },
       {
         title: '鲍某等3人非电梯司机，无证且擅自操作施工升降机，对事故应负直接责任',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -3314,6 +3589,13 @@ const caseData = reactive([{
       },
       {
         title: '拆除脚手架前，没有编制拆除方案，只在现场临时作了分工是造成此事故的原因之一',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -3397,6 +3679,13 @@ const caseData = reactive([{
       },
       {
         title: '作业层跳板下应搭设大眼安全网',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -3480,6 +3769,13 @@ const caseData = reactive([{
       },
       {
         title: '拆除脚手架没有设置警戒区域及专人监护',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -3563,6 +3859,13 @@ const caseData = reactive([{
       },
       {
         title: '张某违章未戴安全帽',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -3646,6 +3949,13 @@ const caseData = reactive([{
       },
       {
         title: '事故的直接原因是卷扬机电源线被轧断后，又与钢管和钢窗相连，使钢窗带电，二人手扶钢窗触电死亡',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -3729,6 +4039,13 @@ const caseData = reactive([{
       },
       {
         title: '雨季应有防洪水措施',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -3812,6 +4129,13 @@ const caseData = reactive([{
       },
       {
         title: '宿舍有人吸烟，点燃易燃物后，引起火灾',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -3895,6 +4219,13 @@ const caseData = reactive([{
       },
       {
         title: '事故原因之一是挡土墙埋置过深',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -3978,6 +4309,13 @@ const caseData = reactive([{
       },
       {
         title: '事故原因之一无支护及降水措施',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -4061,6 +4399,13 @@ const caseData = reactive([{
       },
       {
         title: '安装模板时不允许站在窗户台上,但允许墙顶上',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -4144,6 +4489,13 @@ const caseData = reactive([{
       },
       {
         title: '因抢进度提前拆除模板无需审批',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -4227,6 +4579,13 @@ const caseData = reactive([{
       },
       {
         title: '事故原因之一是模板未按规定连续拆除，而中途停歇',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -4310,6 +4669,13 @@ const caseData = reactive([{
       },
       {
         title: '龙门架倒塌是遇风时由于其他缆风绳也没有收紧，故全部风载荷由磨断2／3的钢丝绳负担被拉断而导致',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -4393,6 +4759,13 @@ const caseData = reactive([{
       },
       {
         title: '作业前,项目部施工技术人员及工程队长向施工人员进行技术交底，并提出提前完工的要求',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -4476,6 +4849,13 @@ const caseData = reactive([{
       },
       {
         title: '汇总表总计得分是72.1分，大于70分，该工程的安全检查评定等级为合格',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -4559,6 +4939,13 @@ const caseData = reactive([{
       },
       {
         title: '多人对同一项目检查评分时，应按加权评分方法确定分值。权数的分配原则应为：专职安全人员的权数为0.6，其他人员的权数为0.4',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -4642,6 +5029,13 @@ const caseData = reactive([{
       },
       {
         title: '人的不安全行为包括现场管理者（工作负责人）的不安全行为和工作人员的不安全行为',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -4725,6 +5119,13 @@ const caseData = reactive([{
       },
       {
         title: '起重伤害是指从事各种起重作业时发生的机械伤害事故，包括起重设备引起的触电及检修时制动失灵造成的伤害,不包括上下驾驶室时发生的坠落伤害',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -4808,6 +5209,13 @@ const caseData = reactive([{
       },
       {
         title: '坍塌事故发生后，应迅速安排专人及时切断有关电闸，并立即组织抢险人员尽快到达事故现场',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -4891,6 +5299,13 @@ const caseData = reactive([{
       },
       {
         title: '机械伤害是指被机械设备或工具绞、碾、碰、割、戳等造成的人身伤害，不包括车辆、起重设备引起的伤害',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '正确'
@@ -4974,6 +5389,13 @@ const caseData = reactive([{
       },
       {
         title: '触电是指由于电流经过人体导致的生理伤害，不包括雷击伤害',
+        list: [{
+          code: '正确',
+          value: '正确'
+        }, {
+          code: '错误',
+          value: '错误'
+        }],
         isShow: false,
         handAnswer: '',
         answer: '错误'
@@ -4982,6 +5404,12 @@ const caseData = reactive([{
   }
 ])
 
-caseData.map((k, i) => { k.index = i })
+const types = ['2', '2', '3', '1'] // 题型 1、判断 2、单选 3、多选 4、案例
+caseData.map((k, i) => {
+  k.index = i
+  k.plist.map((m, n) => {
+    m.type = types[n]
+  })
+})
 
 export default caseData

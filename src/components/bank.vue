@@ -2,7 +2,9 @@
   <section class="bank">
     <!-- header -->
     <section class="header">
-      <div @click="backHome"><img src="../assets/img/back.png" alt /></div>
+      <div @click="backHome">
+        <img src="../assets/img/back.png" alt />
+      </div>
       <div>
         <img src="../assets/img/time.png" alt />
         <span>{{ time }}</span>
@@ -16,7 +18,7 @@
     <section class="menu" :style="{ left: visible ? '0' : '-50%' }">
       <ul class="menu-center">
         <li
-          :class="{ success: item.handAnswer && item.isShow}"
+          :class="{ success: type === '4' ? (item.plist[0].handAnswer && item.plist[0].isShow) : (item.handAnswer && item.isShow)}"
           v-for="item in list"
           :key="item.index"
           @click="curRowIndex = item.index"
@@ -24,7 +26,7 @@
       </ul>
     </section>
     <!-- 判断题/单选题/多选题 -->
-    <div class="main-row" v-if="type === '1' || type === '2' || type === '3'">
+    <section class="main-row" v-if="type === '1' || type === '2' || type === '3'">
       <p>{{ `${list[curRowIndex].index + 1}.【${typeName}】${list[curRowIndex].title}。` }}</p>
       <ul class="list">
         <li
@@ -32,22 +34,22 @@
           :key="index"
           @click="handSelect(item.code)"
         >
-        <span v-if="type === '3'">
-          <img
-            v-if="list[curRowIndex].handAnswer.includes(item.code)"
-            src="../assets/img/checkbox_xuan.png"
-            alt
-          />
-          <img v-else src="../assets/img/checkbox.png" alt />
-        </span>
-        <span v-else>
-          <img
-            v-if="list[curRowIndex].handAnswer === item.code"
-            src="../assets/img/radio_xuan.png"
-            alt
-          />
-          <img v-else src="../assets/img/radio.png" alt />
-        </span>
+          <span v-if="type === '3'">
+            <img
+              v-if="list[curRowIndex].handAnswer.includes(item.code)"
+              src="../assets/img/checkbox_xuan.png"
+              alt
+            />
+            <img v-else src="../assets/img/checkbox.png" alt />
+          </span>
+          <span v-else>
+            <img
+              v-if="list[curRowIndex].handAnswer === item.code"
+              src="../assets/img/radio_xuan.png"
+              alt
+            />
+            <img v-else src="../assets/img/radio.png" alt />
+          </span>
           {{ item.value }}
         </li>
       </ul>
@@ -62,37 +64,58 @@
           <span class="success">{{ list[curRowIndex].answer }}</span>
         </span>
       </div>
-    </div>
+    </section>
     <!-- 案例题 -->
-
+    <section class="main-row" v-if="type === '4'">
+      <p>{{ `${list[curRowIndex].index + 1}.【${typeName}】${list[curRowIndex].title}。` }}</p>
+      <div class="case-box">
+        <div class="case-row" v-for="(item, index) in list[curRowIndex].plist" :key="index">
+          <p>{{ `${index + 1}.${item.title}。` }}</p>
+          <ul class="list">
+            <li
+              v-for="(item1, index1) in item.list"
+              :key="index1"
+              @click="handSelect(item1.code, item.type, index)"
+            >
+              <span v-if="item.type === '3'">
+                <img
+                  v-if="item.handAnswer.includes(item1.code)"
+                  src="../assets/img/checkbox_xuan.png"
+                  alt
+                />
+                <img v-else src="../assets/img/checkbox.png" alt />
+              </span>
+              <span v-else>
+                <img v-if="item.handAnswer === item1.code" src="../assets/img/radio_xuan.png" alt />
+                <img v-else src="../assets/img/radio.png" alt />
+              </span>
+              {{ item1.value }}
+            </li>
+          </ul>
+          <!-- 答案信息 -->
+          <div v-show="item.isShow" class="answer-info">
+            <span>
+              选择答案：
+              <span :class="getAnswerColor(item)">{{ item.handAnswer }}</span>
+            </span>
+            <span>
+              正确答案：
+              <span class="success">{{ item.answer }}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- 操作按钮 -->
     <section class="operation">
-      <span v-show="curRowIndex > 0" class="public-button" @click="qChange(1)">上一题</span>
-      <span
+      <button v-show="curRowIndex > 0" class="public-button" @click="changePage(1)">上一题</button>
+      <button
         v-show="list.filter(k => !k.isShow).length === 0"
         class="public-button"
         @click="submit"
-      >提交</span>
-      <span v-show="curRowIndex < list.length - 1" class="public-button" @click="qChange(2)">下一题</span>
+      >提交</button>
+      <button v-show="curRowIndex < list.length - 1" class="public-button" @click="changePage(2)">下一题</button>
     </section>
-
-    <!-- <ul class="main-row" v-if="type === '4'">
-      <li v-for="(item, index) in caseData" :key="index">
-        <p>{{ `${index + 1}、${item.title}` }}</p>
-        <ul>
-          <li v-for="(item1, index1) in item.plist" :key="index1">
-            <p>{{ `${index1 + 1}、${item1.title}` }}</p>
-            <ul>
-              <li
-                v-for="(item2, index2) in item1.list"
-                :key="index2"
-              >{{ `${item2.code}、${item2.value}` }}</li>
-            </ul>
-            <p>正确答案：{{ item1.answer }}</p>
-          </li>
-        </ul>
-      </li>
-    </ul> -->
   </section>
 </template>
 
@@ -143,43 +166,53 @@ export default {
     let curRowIndex = ref(0);
 
     // 选择答案
-    function handSelect(code) {
+    function handSelect(code, caseType, index) {
+      let thisType = caseType || type;
+      let thisObj = list[curRowIndex.value];
+      if (caseType) {
+        thisObj = list[curRowIndex.value].plist[index];
+      }
       // 多选
-      if(type === '3') {
-        let value = list[curRowIndex.value].handAnswer
-        if (value) {
-          let valueArr = value.split('')
+      if (thisType === "3") {
+        if (thisObj.handAnswer) {
+          let valueArr = thisObj.handAnswer.split("");
           if (valueArr.indexOf(code) > -1) {
-            valueArr.splice(valueArr.indexOf(code), 1)
+            valueArr.splice(valueArr.indexOf(code), 1);
           } else {
-            valueArr.push(code)
+            valueArr.push(code);
           }
-          valueArr.sort()
-          list[curRowIndex.value].handAnswer = valueArr.join('')
+          valueArr.sort();
+          thisObj.handAnswer = valueArr.join("");
         } else {
-          list[curRowIndex.value].handAnswer = code
+          thisObj.handAnswer = code;
         }
       } else {
-        list[curRowIndex.value].handAnswer = code;
+        thisObj.handAnswer = code;
       }
     }
 
     // 切换题目 1、上一页 2、下一页
-    function qChange(type) {
-      if (type === 1) {
+    function changePage(cType) {
+      document.getElementsByClassName('case-box')[0].scrollTop = 0
+      if (cType === 1) {
         curRowIndex.value--;
-      } else if (type === 2) {
-        if (list[curRowIndex.value].isShow) {
-          curRowIndex.value++;
+      } else if (cType === 2) {
+        if (type === '4') {
+          if (list[curRowIndex.value].plist[0].isShow) {
+            curRowIndex.value++;
+          } else {
+            list[curRowIndex.value].plist.forEach(k => {
+              k.isShow = true
+            })
+          }
         } else {
-          list[curRowIndex.value].isShow = true;
+          if (list[curRowIndex.value].isShow) {
+            curRowIndex.value++;
+          } else {
+            list[curRowIndex.value].isShow = true;
+          }
         }
       }
-    }
-
-    // 查看答案
-    function showAnswer() {
-      list[curRowIndex.value].isShow = true;
     }
 
     // 获取题型
@@ -196,8 +229,8 @@ export default {
       return flag;
     }
 
-    function backHome () {
-      window.location.pathname = '/'
+    function backHome() {
+      window.location.search = "";
     }
 
     return {
@@ -208,10 +241,9 @@ export default {
       curRowIndex,
       handSelect,
       getAnswerColor,
-      qChange,
+      changePage,
       typeName,
-      showAnswer,
-      backHome
+      backHome,
     };
   },
 };
@@ -268,10 +300,17 @@ export default {
     }
   }
   .main-row {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     line-height: 30px;
     padding: 20px;
     overflow: auto;
+    .case-box {
+      flex: 1;
+      height: 100px;
+      overflow: auto;
+    }
     .list {
       margin-top: 20px;
       > li {
@@ -298,15 +337,6 @@ export default {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    span {
-      display: inline-block;
-      width: 100px;
-      border: 1px solid #ddd;
-      border-radius: 3px;
-      margin-right: 10px;
-      text-align: center;
-      cursor: pointer;
-    }
   }
 }
 </style>

@@ -1,42 +1,32 @@
 <template>
   <section id="app">
-    <section class="button-group" v-if="!viewComponents || viewComponents === 'home'">
-      <button class="public-button" @click="startAnswer('1')">判断题</button>
-      <button class="public-button" @click="startAnswer('2')">单选题</button>
-      <button class="public-button" @click="startAnswer('3')">多选题</button>
-      <button class="public-button" @click="startAnswer('4')">案例题</button>
-    </section>
-    <component :is="viewComponents" v-else />
+    <component :is="viewComponents" />
   </section>
 </template>
 
 <script>
 import { ref, computed } from "vue";
-import bank from "./components/bank.vue";
-import error from "./components/error.vue";
+import home from "./components/home";
+import bank from "./components/bank";
+import notFound from "./components/notFound";
 export default {
   name: "App",
   setup() {
     // 路由
-    let curRoute = ref(window.location.pathname);
+    let curRoute = ref(window.location.search);
     const routes = {
-      "/": "home",
-      "/bank": "bank",
-      "/error": "error",
+      "": "home",
+      "?bank": "bank",
+      "?notFound": "notFound"
     };
-    const viewComponents = computed(() => routes[curRoute.value] || "error");
+    const viewComponents = computed(() => routes[curRoute.value] || "notFound");
 
-    // 题型 1、判断 2、单选 3、多选 4、案例
-    function startAnswer(curType) {
-      sessionStorage.setItem("type", curType);
-      window.location.pathname = "/bank";
-    }
-
-    return { curRoute, routes, viewComponents, startAnswer };
+    return { viewComponents };
   },
   components: {
+    home,
     bank,
-    error
+    notFound,
   },
 };
 </script>
@@ -49,11 +39,5 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .button-group {
-    button {
-      display: block;
-      margin-top: 20px;
-    }
-  }
 }
 </style>

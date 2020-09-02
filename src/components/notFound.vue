@@ -1,5 +1,5 @@
 <template>
-    <section class="error">
+    <section class="notFound">
         {{ msg }}
     </section>
 </template>
@@ -7,16 +7,10 @@
 <script>
 import { ref } from 'vue'
 export default {
-    name: 'error',
+    name: 'notFound',
     setup () {
-        const msg = ref('error')
+        const msg = ref('~~404~~')
         return { msg }
     }
 }
 </script>
-
-<style lang="less" scoped>
-.error{
-
-}
-</style>
