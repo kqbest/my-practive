@@ -193,7 +193,8 @@ export default {
 
     // 切换题目 1、上一页 2、下一页
     function changePage(cType) {
-      document.getElementsByClassName('case-box')[0].scrollTop = 0
+      let box = document.getElementsByClassName('case-box')[0]
+      box && (box.scrollTop = 0)
       if (cType === 1) {
         curRowIndex.value--;
       } else if (cType === 2) {
@@ -268,6 +269,9 @@ export default {
     > div {
       display: flex;
       align-items: center;
+      &:last-child{
+        cursor: pointer;
+      }
     }
   }
   .menu {
@@ -279,6 +283,7 @@ export default {
     padding: 10px;
     background-color: #fff;
     overflow: auto;
+    border-right: 1px solid #ddd;
     transition: all 0.5s;
     .menu-center {
       li {

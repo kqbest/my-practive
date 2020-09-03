@@ -16,6 +16,28 @@ ul,
 li {
   list-style-type: none;
 }
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track-piece {
+  border-radius: 0;
+  background-color: #fff;
+}
+::-webkit-scrollbar-thumb {
+  width: 12px;
+  height: 12px;
+  background-color: #d8d8d8;
+  border: 3px solid #fff;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: 1px solid #d8d8d8;
+}
+::-webkit-scrollbar-corner {
+  background-color: #fff;
+}
 img {
   display: inline-block;
   width: 20px;
