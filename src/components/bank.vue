@@ -138,7 +138,7 @@
     <!-- 操作按钮 -->
     <section class="operation">
       <span v-show="curRowIndex > 0" @click="changePage(1)">上一题</span>
-      <span v-show="list.filter(k => !k.isShow).length !== 0" @click="submit">提交</span>
+      <span v-show="list.filter(k => !k.isShow).length === 0" @click="submit">提交</span>
       <span v-show="curRowIndex < list.length - 1" @click="changePage(2)">下一题</span>
     </section>
     <!-- 成绩 -->
