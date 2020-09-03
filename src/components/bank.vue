@@ -344,7 +344,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 90%;
+  height: 80%;
   .header {
     display: flex;
     justify-content: space-between;
@@ -399,12 +399,13 @@ export default {
     }
   }
   .main-row {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    height: 80%;
+    line-height: 40px;
     padding: 20px;
     overflow: auto;
-    line-height: 40px;
     .title {
       line-height: 24px;
     }

@@ -30,7 +30,7 @@ export default {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 90%;
+  height: 80%;
   .button-group {
     button {
       display: block;
