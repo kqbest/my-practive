@@ -337,7 +337,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url("../assets/css/base.less");
+@import "../assets/css/base.less";
 .bank {
   flex: 1;
   display: flex;
@@ -427,7 +427,7 @@ export default {
         }
         > span {
           display: flex;
-          align-items: start;
+          align-items: flex-start;
           svg {
             margin-right: 10px;
             margin-top: 10px;
