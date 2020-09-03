@@ -1,0 +1,58 @@
+{
+  "id": "2043795",
+  "name": "题库",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8627921",
+      "name": "Singleelection-chec",
+      "font_class": "radiobox_xuan",
+      "unicode": "e6b5",
+      "unicode_decimal": 59061
+    },
+    {
+      "icon_id": "8628008",
+      "name": "Singleelection-norm",
+      "font_class": "radiobox",
+      "unicode": "e6b8",
+      "unicode_decimal": 59064
+    },
+    {
+      "icon_id": "8822063",
+      "name": "复选框选中",
+      "font_class": "checkbox_xuan",
+      "unicode": "e6d4",
+      "unicode_decimal": 59092
+    },
+    {
+      "icon_id": "8822066",
+      "name": "复选框",
+      "font_class": "checkbox",
+      "unicode": "e6d7",
+      "unicode_decimal": 59095
+    },
+    {
+      "icon_id": "8081375",
+      "name": "清单",
+      "font_class": "list",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "8288868",
+      "name": "闹钟",
+      "font_class": "clock",
+      "unicode": "e851",
+      "unicode_decimal": 59473
+    },
+    {
+      "icon_id": "16209396",
+      "name": "左箭头",
+      "font_class": "back",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    }
+  ]
+}

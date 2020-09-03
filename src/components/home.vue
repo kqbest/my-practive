@@ -14,11 +14,10 @@ export default {
   name: "home",
   setup() {
     // 题型 1、判断 2、单选 3、多选 4、案例
-    function startAnswer(curType) {
-      sessionStorage.setItem("type", curType);
+    function startAnswer(type) {
+      sessionStorage.setItem("type", type);
       window.location.search = "?bank";
     }
-
     return { startAnswer };
   },
 };
@@ -26,10 +25,18 @@ export default {
 
 <style lang="less" scoped>
 .home {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
   .button-group {
     button {
       display: block;
       margin-top: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px #ddd;
     }
   }
 }

@@ -12,15 +12,14 @@ import notFound from "./components/notFound";
 export default {
   name: "App",
   setup() {
-    // 路由
+    // 模拟路由
     let curRoute = ref(window.location.search);
     const routes = {
       "": "home",
       "?bank": "bank",
-      "?notFound": "notFound"
+      "?notFound": "notFound",
     };
     const viewComponents = computed(() => routes[curRoute.value] || "notFound");
-
     return { viewComponents };
   },
   components: {
@@ -37,7 +36,6 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
 }
 </style>
