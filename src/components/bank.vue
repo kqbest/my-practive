@@ -7,11 +7,11 @@
       </div>
       <div class="clock">
         <i class="iconfont iconclock"></i>
-        <span>{{ time }}</span>
+        {{ time }}
       </div>
       <div class="close hand" @click="visible = !visible">
         <i class="iconfont iconlist"></i>
-        <span>{{ list.length }}</span>
+        {{ list.length }}
       </div>
     </section>
     <!-- 菜单 -->
@@ -202,6 +202,7 @@ export default {
     // 菜单
     let visible = ref(false);
     function hide(e) {
+      console.log(e.target.className);
       if (
         e.target.className !== "close hand" &&
         e.target.className !== "iconfont iconlist"
@@ -500,9 +501,9 @@ export default {
         margin-bottom: 20px;
         font-size: 30px;
         color: @mainColor;
-        &::before{
+        &::before {
           display: block;
-          content: '';
+          content: "";
           position: absolute;
           left: 50%;
           top: 0;
