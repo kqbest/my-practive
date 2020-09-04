@@ -99,6 +99,7 @@
           <p class="title">{{ `${index + 1}.[${typeName(item.type)}]${item.title}。` }}</p>
           <ul class="list">
             <li
+              :class="{ active: type === '3' ? item.handAnswer.includes(item1.code) : item.handAnswer === item1.code }"
               v-for="(item1, index1) in item.list"
               :key="index1"
               @click="handSelect(item1.code, item.type, index)"
