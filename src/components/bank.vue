@@ -26,7 +26,7 @@
         <li
           :class="{
             success: type === '4' ? (item.plist[0].handAnswer && item.plist[0].isShow) : (item.handAnswer && item.isShow),
-            error: type === '4' ? (item.plist[0].handAnswer && item.plist[0].isShow && k.plist.some((k) => k.handAnswer && k.handAnswer !== k.answer)) : (item.handAnswer && item.isShow && item.handAnswer !== item.answer)
+            error: type === '4' ? (item.plist[0].handAnswer && item.plist[0].isShow && item.plist.some((k) => k.handAnswer && k.handAnswer !== k.answer)) : (item.handAnswer && item.isShow && item.handAnswer !== item.answer)
           }"
           v-for="item in list"
           :key="item.index"
@@ -99,7 +99,7 @@
           <p class="title">{{ `${index + 1}.[${typeName(item.type)}]${item.title}。` }}</p>
           <ul class="list">
             <li
-              :class="{ active: type === '3' ? item.handAnswer.includes(item1.code) : item.handAnswer === item1.code }"
+              :class="{ active: item.type === '3' ? item.handAnswer.includes(item1.code) : item.handAnswer === item1.code }"
               v-for="(item1, index1) in item.list"
               :key="index1"
               @click="handSelect(item1.code, item.type, index)"
@@ -212,7 +212,6 @@ export default {
     // 菜单
     let visible = ref(false);
     function hide(e) {
-      console.log(e.target.className);
       if (
         e.target.className !== "close hand" &&
         e.target.className !== "iconfont iconlist"
