@@ -297,15 +297,10 @@ export default {
       list.forEach((k) => {
         if (type === "4") {
           if (state === 1) {
-            if (k.plist.every((k) => k.handAnswer === k.answer)) {
-              num++;
-            }
+            k.plist.every((k) => k.handAnswer === k.answer) && num++;
           } else {
-            if (
-              k.plist.some((k) => k.handAnswer && k.handAnswer !== k.answer)
-            ) {
+            k.plist.some((k) => k.handAnswer && k.handAnswer !== k.answer) &&
               num++;
-            }
           }
         } else {
           if (state === 1) {
