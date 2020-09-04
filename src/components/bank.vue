@@ -434,9 +434,9 @@ export default {
       margin-top: 20px;
       > li {
         display: flex;
-        padding-left: 10px;
+        padding: 10px;
         margin-bottom: 10px;
-        line-height: 40px;
+        line-height: 24px;
         border: 1px solid #ddd;
         border-radius: 3px;
         cursor: pointer;
@@ -448,7 +448,7 @@ export default {
           align-items: flex-start;
           svg {
             margin-right: 10px;
-            margin-top: 10px;
+            margin-top: 2px;
           }
         }
       }
