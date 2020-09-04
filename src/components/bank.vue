@@ -16,9 +16,18 @@
     </section>
     <!-- 菜单 -->
     <section class="menu" :style="{ left: visible ? '0' : '-50%' }">
+      <div class="menu-header">
+        错误:
+        <span
+          class="error"
+        >{{ type === '4' ? list.filter(k => k.plist.some(m => m.handAnswer && m.handAnswer && m.handAnswer !== m.answer)).length : list.filter(k => k.handAnswer && k.isShow && k.handAnswer !== k.answer).length }}</span> 题
+      </div>
       <ul class="menu-list">
         <li
-          :class="{ success: type === '4' ? (item.plist[0].handAnswer && item.plist[0].isShow) : (item.handAnswer && item.isShow) }"
+          :class="{
+            success: type === '4' ? (item.plist[0].handAnswer && item.plist[0].isShow) : (item.handAnswer && item.isShow),
+            error: type === '4' ? (item.plist[0].handAnswer && item.plist[0].isShow && k.plist.some((k) => k.handAnswer && k.handAnswer !== k.answer)) : (item.handAnswer && item.isShow && item.handAnswer !== item.answer)
+          }"
           v-for="item in list"
           :key="item.index"
           @click="curRowIndex = item.index"
@@ -367,13 +376,20 @@ export default {
     top: 50px;
     left: -50%;
     bottom: 0;
+    display: flex;
+    flex-direction: column;
     width: 50%;
-    padding: 10px;
+    padding: 0px 10px 10px;
     background-color: #fff;
-    overflow: auto;
     border-right: 1px solid #ddd;
     transition: all 0.5s;
+    .menu-header {
+      line-height: 40px;
+    }
     .menu-list {
+      flex: 1;
+      height: 80%;
+      overflow: auto;
       li {
         float: left;
         width: 30px;
@@ -389,6 +405,11 @@ export default {
         &.success {
           color: #fff;
           background-color: @mainColor;
+        }
+        &.error {
+          color: #fff;
+          border-color: #f36969;
+          background-color: #f36969;
         }
       }
     }
