@@ -149,7 +149,7 @@
     <section class="operation">
       <span v-show="curRowIndex > 0" @click="changePage(1)">上一题</span>
       <span v-show="list.filter(k => !k.isShow).length === 0" @click="submit">提交</span>
-      <span v-show="curRowIndex < list.length - 1" @click="changePage(2)">下一题</span>
+      <span @click="changePage(2)">下一题</span>
     </section>
     <!-- 成绩 -->
     <section class="achievement" v-if="visibleSubmit">
@@ -259,11 +259,11 @@ export default {
     function changePage(cType) {
       let box = document.getElementsByClassName("case-box")[0];
       box && (box.scrollTop = 0);
-      if (cType === 1) {
+      if (cType === 1 && curRowIndex.value > 0) {
         curRowIndex.value--;
       } else if (cType === 2) {
         if (type === "4") {
-          if (list[curRowIndex.value].plist[0].isShow) {
+          if (list[curRowIndex.value].plist[0].isShow && curRowIndex.value < list.length - 1) {
             curRowIndex.value++;
           } else {
             list[curRowIndex.value].plist.forEach((k) => {
@@ -271,7 +271,7 @@ export default {
             });
           }
         } else {
-          if (list[curRowIndex.value].isShow) {
+          if (list[curRowIndex.value].isShow && curRowIndex.value < list.length - 1) {
             curRowIndex.value++;
           } else {
             list[curRowIndex.value].isShow = true;
