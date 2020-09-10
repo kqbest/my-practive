@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
 }
@@ -67,5 +66,6 @@ button {
   border: 1px solid #ddd;
   border-radius: 3px;
   outline: none;
+  user-select: none;
   cursor: pointer;
 }

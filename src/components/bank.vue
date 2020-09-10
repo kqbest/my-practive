@@ -190,11 +190,24 @@ export default {
   name: "bank",
   setup() {
     let type = sessionStorage.getItem("type");
+    let isSee = sessionStorage.getItem("isSee");
 
     // 当前题库
     let list = reactive([]);
     let dataArr = [Judge, Select, MultipleSelect, Case];
     list = dataArr[+type - 1];
+    !!isSee &&
+      list.map((k) => {
+        if (type === "4") {
+          k.plist.map((m) => {
+            m.isShow = true;
+            m.handAnswer = m.answer;
+          });
+        } else {
+          k.isShow = true;
+          k.handAnswer = k.answer;
+        }
+      });
 
     // 计时器
     let time = ref("00:00");
@@ -263,7 +276,10 @@ export default {
         curRowIndex.value--;
       } else if (cType === 2) {
         if (type === "4") {
-          if (list[curRowIndex.value].plist[0].isShow && curRowIndex.value < list.length - 1) {
+          if (
+            list[curRowIndex.value].plist[0].isShow &&
+            curRowIndex.value < list.length - 1
+          ) {
             curRowIndex.value++;
           } else {
             list[curRowIndex.value].plist.forEach((k) => {
@@ -271,7 +287,10 @@ export default {
             });
           }
         } else {
-          if (list[curRowIndex.value].isShow && curRowIndex.value < list.length - 1) {
+          if (
+            list[curRowIndex.value].isShow &&
+            curRowIndex.value < list.length - 1
+          ) {
             curRowIndex.value++;
           } else {
             list[curRowIndex.value].isShow = true;
@@ -321,6 +340,11 @@ export default {
       });
       return num;
     }
+
+    // enter下一页
+    document.addEventListener("keydown", (e) => {
+      e.key === "Enter" && changePage(2);
+    });
 
     return {
       type,
