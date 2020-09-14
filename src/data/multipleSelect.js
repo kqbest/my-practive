@@ -4632,7 +4632,7 @@ const multipleSelect = reactive([{
     handAnswer: '',
     answer: 'ADE'
   }, {
-    title: '当货用施工升降机采用缆风绳稳固导轨架时，缆风绳设置应符合的规定，下列叙述正确的是（ ）。',
+    title: '当货用施工升降机采用缆风绳稳固导轨架时，缆风绳设置应符合的规定，下列叙述正确的是（ ）',
     list: [{
       code: 'A',
       value: '缆风绳与导轨架的连接处应采取防止钢丝绳受剪破坏的措施。'
@@ -5154,7 +5154,7 @@ const multipleSelect = reactive([{
       },
       {
         code: 'B',
-        value: '.安全帽、安全带等作业所必需的个人防护用品不落实，不盲目操作'
+        value: '安全帽、安全带等作业所必需的个人防护用品不落实，不盲目操作'
       },
       {
         code: 'C',
