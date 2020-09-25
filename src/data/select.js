@@ -5683,6 +5683,6 @@ const select = reactive([{
   }
 ])
 
-select.map((k, i) => { k.index = i })
+select.map((k, i) => { k.index = i; k.type = '2' })
 
 export default select

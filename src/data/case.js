@@ -5405,6 +5405,7 @@ const caseData = reactive([{
 const types = ['2', '2', '3', '1'] // 题型 1、判断 2、单选 3、多选 4、案例
 caseData.map((k, i) => {
   k.index = i
+  k.type = '4'
   k.plist.map((m, n) => {
     m.type = types[n]
   })

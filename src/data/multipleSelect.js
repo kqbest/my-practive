@@ -5773,6 +5773,6 @@ const multipleSelect = reactive([{
   }
 ])
 
-multipleSelect.map((k, i) => { k.index = i })
+multipleSelect.map((k, i) => { k.index = i; k.type = '3' })
 
 export default multipleSelect

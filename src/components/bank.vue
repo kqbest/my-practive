@@ -20,13 +20,13 @@
         错误:
         <span
           class="error"
-        >{{ type === '4' ? list.filter(k => k.plist.some(m => m.handAnswer && m.handAnswer && m.handAnswer !== m.answer)).length : list.filter(k => k.handAnswer && k.isShow && k.handAnswer !== k.answer).length }}</span> 题
+        >{{ getErrorNum }}</span> 题
       </div>
       <ul class="menu-list">
         <li
           :class="{
-            success: type === '4' ? (item.plist[0].handAnswer && item.plist[0].isShow) : (item.handAnswer && item.isShow),
-            error: type === '4' ? (item.plist[0].handAnswer && item.plist[0].isShow && item.plist.some((k) => k.handAnswer && k.handAnswer !== k.answer)) : (item.handAnswer && item.isShow && item.handAnswer !== item.answer)
+            success: item.type === '4' ? (item.plist[0].handAnswer && item.plist[0].isShow) : (item.handAnswer && item.isShow),
+            error: item.type === '4' ? (item.plist[0].handAnswer && item.plist[0].isShow && item.plist.some((k) => k.handAnswer && k.handAnswer !== k.answer)) : (item.handAnswer && item.isShow && item.handAnswer !== item.answer)
           }"
           v-for="item in list"
           :key="item.index"
@@ -35,18 +35,18 @@
       </ul>
     </section>
     <!-- 判断题/单选题/多选题 -->
-    <section class="main-row" v-if="type === '1' || type === '2' || type === '3'">
+    <section class="main-row" v-if="list[curRowIndex].type === '1' || list[curRowIndex].type === '2' || list[curRowIndex].type === '3'">
       <p
         class="title"
       >{{ `${list[curRowIndex].index + 1}.【${typeName()}】${list[curRowIndex].title}。` }}</p>
       <ul class="list">
         <li
-          :class="{ active: type === '3' ? list[curRowIndex].handAnswer.includes(item.code) : list[curRowIndex].handAnswer === item.code }"
+          :class="{ active: list[curRowIndex].type === '3' ? list[curRowIndex].handAnswer.includes(item.code) : list[curRowIndex].handAnswer === item.code }"
           v-for="(item, index) in list[curRowIndex].list"
           :key="index"
           @click="handSelect(item.code)"
         >
-          <span v-if="type === '3'">
+          <span v-if="list[curRowIndex].type === '3'">
             <svg
               v-if="list[curRowIndex].handAnswer.includes(item.code)"
               class="icon svg"
@@ -90,7 +90,7 @@
       </div>
     </section>
     <!-- 案例题 -->
-    <section class="main-row" v-if="type === '4'">
+    <section class="main-row" v-if="list[curRowIndex].type === '4'">
       <p
         class="title"
       >{{ `${list[curRowIndex].index + 1}.【${typeName()}】${list[curRowIndex].title}。` }}</p>
@@ -181,7 +181,7 @@
 </template>
 
 <script>
-import { ref, reactive } from "vue";
+import { ref, reactive, computed } from "vue";
 import Judge from "../data/judge";
 import Select from "../data/select";
 import MultipleSelect from "../data/multipleSelect";
@@ -192,13 +192,42 @@ export default {
     let type = sessionStorage.getItem("type");
     let isSee = sessionStorage.getItem("isSee");
 
+    // 模拟考试数据
+    let simulationData = [
+      ...getRandomData(Judge, 30),
+      ...getRandomData(Select, 30),
+      ...getRandomData(MultipleSelect, 30),
+      ...getRandomData(Case, 10)
+    ]
+    simulationData.map((k, i) => { k.index = i })
+
+    /**
+     * 随机抽取数据
+     * dataArr => 数据库
+     * num => 抽取个数
+     */
+    function getRandomData (dataArr, num) {
+      let result = []
+      for (let i = 0; i < dataArr.length; i++) {
+        let index = Math.ceil(Math.random() * dataArr.length - 1);
+        if (result.length < num) {
+          if (!~result.findIndex(k => k.title === dataArr[index].title)) {
+            result.push(dataArr[index]);
+          }
+        } else {
+          break
+        }
+      }
+      return result
+    }
+
     // 当前题库
     let list = reactive([]);
-    let dataArr = [Judge, Select, MultipleSelect, Case];
+    let dataArr = [Judge, Select, MultipleSelect, Case, simulationData];
     list = dataArr[+type - 1];
     !!isSee &&
       list.map((k) => {
-        if (type === "4") {
+        if (k.type === "4") {
           k.plist.map((m) => {
             m.isShow = true;
             m.handAnswer = m.answer;
@@ -239,14 +268,14 @@ export default {
 
     // 获取题型
     function typeName(curType) {
-      let qType = curType || type;
+      let qType = curType || list[curRowIndex.value].type;
       let arr = ["判断题", "单选题", "多选题", "案例题"];
       return arr[+qType - 1];
     }
 
     // 选择答案
     function handSelect(code, caseType, index) {
-      let thisType = caseType || type;
+      let thisType = caseType || list[curRowIndex.value].type;
       let thisObj = list[curRowIndex.value];
       caseType && (thisObj = list[curRowIndex.value].plist[index]);
       // 多选
@@ -275,7 +304,7 @@ export default {
       if (cType === 1 && curRowIndex.value > 0) {
         curRowIndex.value--;
       } else if (cType === 2) {
-        if (type === "4") {
+        if (list[curRowIndex.value].type === "4") {
           if (
             list[curRowIndex.value].plist[0].isShow &&
             curRowIndex.value < list.length - 1
@@ -308,6 +337,23 @@ export default {
       return flag;
     }
 
+    // 获取错误答案个数
+    let getErrorNum = computed(() => {
+      let num = 0;
+      list.forEach(k => {
+        if (k.type === '4') {
+          if (k.plist.some(m => m.isShow && m.handAnswer && m.handAnswer !== m.answer)) {
+            num += 1;
+          }
+        } else {
+          if (k.isShow && k.handAnswer && k.handAnswer !== k.answer) {
+            num += 1;
+          }
+        }
+      })
+      return num;
+    })
+
     // 回到首页
     function backHome() {
       window.location.search = "";
@@ -323,7 +369,7 @@ export default {
     function getAnswerState(state) {
       let num = 0;
       list.forEach((k) => {
-        if (type === "4") {
+        if (k.type === "4") {
           if (state === 1) {
             k.plist.every((k) => k.handAnswer === k.answer) && num++;
           } else {
@@ -356,10 +402,11 @@ export default {
       handSelect,
       changePage,
       getAnswerColor,
+      getErrorNum,
       backHome,
       submit,
       visibleSubmit,
-      getAnswerState,
+      getAnswerState
     };
   },
 };

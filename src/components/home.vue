@@ -6,6 +6,7 @@
       <button class="public-button" @click="startAnswer('3')">多选题{{ seeFlag ? '(阅读)' : '' }}</button>
       <button class="public-button" @click="startAnswer('4')">案例题{{ seeFlag ? '(阅读)' : '' }}</button>
       <button class="public-button" @click="changeType()">阅读模式</button>
+      <button class="public-button" @click="startAnswer('5')">模拟考试</button>
     </section>
   </section>
 </template>

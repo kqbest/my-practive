@@ -2797,6 +2797,6 @@ const judge = reactive([{
   }
 ])
 
-judge.map((k, i) => { k.index = i })
+judge.map((k, i) => { k.index = i; k.type = '1' })
 
 export default judge
