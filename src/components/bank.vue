@@ -495,6 +495,8 @@ export default {
     overflow: auto;
     .title {
       line-height: 24px;
+      max-height: 40%;
+      overflow: auto;
     }
     .case-box {
       flex: 1;
